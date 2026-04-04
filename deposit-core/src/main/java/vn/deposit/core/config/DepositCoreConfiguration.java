@@ -1,0 +1,20 @@
+package vn.deposit.core.config;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import vn.core.authorization.EnableCoreKafkaConsumer;
+import vn.core.authorization.EnableCoreKafkaProducer;
+
+@Configuration
+@ComponentScan(basePackages = {"vn.deposit.core.service"})
+@EnableCoreKafkaConsumer
+@EnableCoreKafkaProducer
+@EnableJpaAuditing
+@EnableJpaRepositories(basePackages = {"vn.deposit.core.repository"})
+@EntityScan(basePackages = {"vn.deposit.core.entity"})
+public class DepositCoreConfiguration {
+
+}
