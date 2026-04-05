@@ -2,12 +2,16 @@ package vn.deposit.core;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
+
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.test.context.ActiveProfiles;
 import vn.deposit.core.entity.Transaction;
 import vn.deposit.core.entity.Wallet;
@@ -22,8 +26,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 @SpringBootTest(classes = {WalletServiceImplTest.class})
 @ActiveProfiles("")
@@ -44,6 +49,10 @@ public class DepositTest {
   @InjectMocks
   private ReconciliationService service;
 
+  public static void main(String[] args) {
+    System.out.println(System.currentTimeMillis());
+  }
+
 
   @Test
   void testDeposit_success() throws JsonProcessingException {
@@ -62,7 +71,7 @@ public class DepositTest {
 
     Wallet updatedWallet = walletService.deposit(userId, depositAmount, referenceId);
 
-    assertEquals(600L, updatedWallet.getBalance());
+    Assertions.assertEquals(600L, Optional.ofNullable(updatedWallet.getBalance()));
     Mockito.verify(walletRepository).save(wallet);
     Mockito.verify(transactionRepository).save(Mockito.any(Transaction.class));
   }
@@ -79,7 +88,7 @@ public class DepositTest {
       walletService.deposit(userId, depositAmount, referenceId)
     );
 
-    assertEquals("Wallet not found", ex.getMessage());
+    Assertions.assertEquals("Wallet not found", ex.getMessage());
   }
 
   @Test
@@ -104,11 +113,11 @@ public class DepositTest {
 
     ReconciliationResult result = service.reconcile(bank, db);
 
-    assertEquals(1, result.getMissing().size());
-    assertEquals("TXN3", result.getMissing().get(0).getRef());
+    Assertions.assertEquals(1, result.getMissing().size());
+    Assertions.assertEquals("TXN3", result.getMissing().get(0).getRef());
 
-    assertEquals(1, result.getMismatch().size());
-    assertEquals("TXN2", result.getMismatch().get(0).getRef());
+    Assertions.assertEquals(1, result.getMismatch().size());
+    Assertions.assertEquals("TXN2", result.getMismatch().get(0).getRef());
   }
 
   @Test
@@ -122,8 +131,8 @@ public class DepositTest {
 
     ReconciliationResult result = service.reconcile(bank, db);
 
-    assertEquals(0, result.getMissing().size());
-    assertEquals(0, result.getMismatch().size());
+    Assertions.assertEquals(0, result.getMissing().size());
+    Assertions.assertEquals(0, result.getMismatch().size());
   }
 
   @Test
@@ -133,9 +142,9 @@ public class DepositTest {
 
     ReconciliationResult result = service.reconcile(bank, db);
 
-    assertEquals(1, result.getMissing().size());
-    assertEquals("TXN1", result.getMissing().get(0).getRef());
-    assertEquals(0, result.getMismatch().size());
+    Assertions.assertEquals(1, result.getMissing().size());
+    Assertions.assertEquals("TXN1", result.getMissing().get(0).getRef());
+    Assertions.assertEquals(0, result.getMismatch().size());
   }
 
 }
