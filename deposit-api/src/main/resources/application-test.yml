@@ -18,3 +18,9 @@ spring:
     url: jdbc:mysql://host.docker.internal:3306/test_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: 123456
+
+#
+#Login MySQL và chạy:
+#
+#  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456';
+#  FLUSH PRIVILEGES;
