@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 public class ReconciliationServiceImpl implements ReconciliationService {
 
-  @Autowired
+  @Override
   public ReconciliationResult reconcile(
     List<BankTx> bank,
     List<Transaction> db) {
