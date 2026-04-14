@@ -26,13 +26,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@SpringBootTest(classes = {WalletServiceImplTest.class})
-@ActiveProfiles("")
-@AutoConfigureTestDatabase
+@SpringBootTest
+@ActiveProfiles("test")
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Slf4j
 public class DepositTest {
 

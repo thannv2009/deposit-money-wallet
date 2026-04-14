@@ -13,5 +13,16 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  app:
+    build:
+      context: .              # ✅ dùng root
+      dockerfile: Dockerfile  # ✅ chỉ rõ file
+    container_name: wallet-app
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+
 volumes:
   mysql_data:
