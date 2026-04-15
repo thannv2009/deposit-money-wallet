@@ -7,11 +7,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import vn.core.authorization.EnableCoreKafkaConsumer;
 import vn.core.authorization.EnableCoreKafkaProducer;
+import vn.core.authorization.config.EnableAuthenticationCore;
 
 @Configuration
 @ComponentScan(basePackages = {"vn.deposit.core.service"})
 @EnableCoreKafkaConsumer
 @EnableCoreKafkaProducer
+@EnableAuthenticationCore
 @EnableJpaAuditing
 @EnableJpaRepositories(basePackages = {"vn.deposit.core.repository"})
 @EntityScan(basePackages = {"vn.deposit.core.entity"})
