@@ -19,6 +19,7 @@
         <module>core-authorization</module>
         <module>core-kafka</module>
         <module>core-entity</module>
+        <module>core-queue</module>
     </modules>
 
     <properties>

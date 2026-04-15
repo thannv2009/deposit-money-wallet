@@ -1,5 +1,6 @@
 package vn.deposit.core.listenner;
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,11 @@ public class TestKafkaListener {
 
     System.out.println("TestKafkaListener" + message);
 
+  }
+
+  @RabbitListener(queues = "${application.queue.test:queueTest}")
+  public void trackingEventUserListener(String message) {
+    System.out.println("TestRabbitMqListener" + message);
   }
 
 }
