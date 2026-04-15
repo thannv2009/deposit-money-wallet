@@ -34,7 +34,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
         UsernamePasswordAuthenticationFilter.class)
       .authorizeRequests()
       .antMatchers(
-        "/api/**"
+        "/wallet/**"
       )
       .permitAll()
       .anyRequest().authenticated();

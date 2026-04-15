@@ -1,4 +1,4 @@
-package vn.core.authorization;
+package vn.core.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

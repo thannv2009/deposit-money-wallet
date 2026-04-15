@@ -5,8 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import vn.core.authorization.EnableCoreKafkaConsumer;
-import vn.core.authorization.EnableCoreKafkaProducer;
+import vn.core.kafka.EnableCoreKafkaConsumer;
+import vn.core.kafka.EnableCoreKafkaProducer;
 import vn.core.authorization.config.EnableAuthenticationCore;
 
 @Configuration

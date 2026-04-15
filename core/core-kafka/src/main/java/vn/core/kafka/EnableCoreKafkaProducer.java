@@ -1,6 +1,4 @@
-package vn.core.authorization;
-
-
+package vn.core.kafka;
 
 import org.springframework.context.annotation.Import;
 
@@ -9,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Import({KafkaConsumerConfiguration.class})
+@Import({KafkaProducerConfiguration.class})
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface EnableCoreKafkaConsumer {
+public @interface EnableCoreKafkaProducer {
 }
