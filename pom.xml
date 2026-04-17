@@ -13,6 +13,7 @@
         <module>core</module>
         <module>deposit-api</module>
         <module>deposit-core</module>
+        <module>deposit-schedule</module>
     </modules>
 
     <properties>
