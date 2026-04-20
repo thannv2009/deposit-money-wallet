@@ -34,7 +34,9 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
         UsernamePasswordAuthenticationFilter.class)
       .authorizeRequests()
       .antMatchers(
-        "/wallet/**"
+        "/wallet/**",
+              "/swagger-ui/**",
+              "/v3/api-docs/**"
       )
       .permitAll()
       .anyRequest().authenticated();

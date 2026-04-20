@@ -53,6 +53,15 @@ services:
     networks:
       - app-net
 
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-net
+
+
   app:
     build:
       context: .
@@ -75,6 +84,9 @@ services:
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
+
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
 
     networks:
       - app-net

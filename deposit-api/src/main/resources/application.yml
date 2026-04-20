@@ -33,3 +33,16 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+  data:
+    redis:
+      jedis:
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 1
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    url: /v3/api-docs
