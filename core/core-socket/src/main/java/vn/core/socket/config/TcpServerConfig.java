@@ -10,7 +10,7 @@ import org.springframework.messaging.MessageChannel;
 
 // Nhận request thông qua TCP IP
 @Configuration
-public class TcpServiceConfig {
+public class TcpServerConfig {
 
     // =====================
     // 1. Server Factory

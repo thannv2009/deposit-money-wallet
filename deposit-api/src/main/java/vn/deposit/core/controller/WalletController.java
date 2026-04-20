@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import vn.core.queue.service.QueueService;
+import vn.core.socket.service.TcpClientService;
 import vn.deposit.core.model.request.DepositRequest;
 import vn.deposit.core.service.WalletService;
 
@@ -26,6 +27,8 @@ public class WalletController {
 
   private final QueueService queueService;
 
+  private final TcpClientService tcpClientService;
+
   @PostMapping("/deposit")
   public String deposit(@RequestBody DepositRequest req) throws JsonProcessingException {
     walletService.deposit(req.getUserId(), req.getAmount(), req.getReferenceId());
@@ -36,11 +39,9 @@ public class WalletController {
 
   @GetMapping("/balance/{userId}")
   public Long balance(@PathVariable String userId) {
+    tcpClientService.send("abc");
     return walletService.getBalance(userId);
   }
 
-  public static void main(String[] args) {
-    System.out.println(System.currentTimeMillis());
-  }
 
 }

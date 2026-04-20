@@ -1,4 +1,4 @@
-package vn.deposit.core.listenner;
+package vn.deposit.core.test;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.kafka.annotation.KafkaListener;

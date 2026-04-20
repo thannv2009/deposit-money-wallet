@@ -20,6 +20,7 @@
         <module>core-kafka</module>
         <module>core-entity</module>
         <module>core-queue</module>
+        <module>core-socket</module>
     </modules>
 
     <properties>
