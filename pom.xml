@@ -14,6 +14,7 @@
         <module>deposit-api</module>
         <module>deposit-core</module>
         <module>deposit-schedule</module>
+        <module>core/core-socket</module>
     </modules>
 
     <properties>

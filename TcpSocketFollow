@@ -1,0 +1,19 @@
+Controller
+   ↓
+TcpClientService
+   ↓
+TcpOutboundGateway
+   ↓
+TcpNetClientConnectionFactory
+   ↓
+TCP SOCKET
+   ↓
+TcpNetServerConnectionFactory
+   ↓
+requestChannel
+   ↓
+handler
+   ↓
+replyChannel
+   ↓
+response về client
